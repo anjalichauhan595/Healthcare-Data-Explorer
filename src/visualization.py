@@ -27,3 +27,21 @@ def plot_age_by_heart_disease(df):
     plt.tight_layout()
     plt.savefig('outputs/age_by_heart_disease_boxplot.png', dpi=300, bbox_inches='tight')
     plt.close()
+
+def plot_correlation_heatmap(df):
+    
+    plt.figure(figsize=(8, 6))
+    correlation_matrix = df.corr()
+    plt.imshow(correlation_matrix, cmap='coolwarm', interpolation='nearest')
+    plt.colorbar()
+    plt.xticks(range(len(correlation_matrix)), correlation_matrix.columns, rotation=90) 
+    plt.yticks(range(len(correlation_matrix)), correlation_matrix.index)
+
+    plt.xlabel("Variables")
+    plt.ylabel("Variables")
+
+    plt.title('Correlation Matrix of Cleveland Heart Disease Dataset')
+    plt.tight_layout()
+    plt.savefig('outputs/correlation_matrix_heatmap.png', dpi=300, bbox_inches='tight')
+    plt.close()
+
